@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %} Your Url "{{code}}" {% endblock %}
+{% block content %}
+<!-- {{super()}} -->
+<!-- <div class="container text-center">    
+    {{code}}
+    {{url}}
+</div> -->
+<div class="container">
+    <div class="mt-4 p-5 bg-light rounded text-center">
+        <h1 class="jumbotron-heading">URL Created</h1>
+        <input class="lead form-control" id="new_url" value="{{ url_for('redirect_to_url', code=code, _external=True) }}" readonly>
+        <p>
+            <button onclick="copyUrl()" class="btn btn-primary my-2">Copy URL</button>
+        </p>        
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,20 @@
+/*
+orange color: #e67e22
+
+*/
+/*--------------------Basic Setup--------------------*/
+/* Step 1: always set*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Step 2 always set */
+html{
+    background-color: #fff;
+    color: #555;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+}

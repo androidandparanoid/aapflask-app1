@@ -1,0 +1,83 @@
+{% block head %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href={{url_for('static',filename='/resources/css/style.css')}} type="text/css"> -->
+    <!-- <link rel="stylesheet" href={{url_for('static',filename='/resources/css/grid.css')}} type="text/css"> -->
+    <link rel="stylesheet" href={{url_for('static',filename='/resources/css/normalize.css')}} type="text/css">       
+    <link rel="stylesheet" href={{url_for('static',filename='/resources/css/bootstrap.min.css')}} type="text/css">  
+    
+    <title>{% block title %} Base Template {% endblock %}</title>
+    
+</head>
+{% endblock %}
+
+
+    {% block nav %}
+    <body>
+        <div class="container">
+            <div class="row d-flex flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+              <div class="col-6">
+                <h5 class="my-0 mr-md-auto font-weight-normal">URL Shortener</h5> 
+              </div>          
+              <div class="col-6">
+                <nav class="float-end">
+                    <a class="btn text-dark" href="{{ url_for('session_api')}}">API</a>   
+                    <a class="btn btn-outline-primary" href="{{ url_for('index')}}">New URL</a>                                   
+                </nav>
+              </div>            
+            </div>
+          </div>
+        <!-- <div class="d-flex flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+            <h5 class="my-0 mr-md-auto font-weight-normal">URL Shortener</h5>    
+            <nav class="my-2 my-md-0 mr-md-3">
+                <a class="btn btn-outline-secondary" href="{{ url_for('session_api')}}">API</a>                    -->
+                <!-- <ul class="main-nav">
+                    <li><a class="btn btn-outline-secondary" href="{{ url_for('session_api')}}">API</a></li>                  
+                    <li><a class="btn btn-outline-primary" href="{{ url_for('index')}}">New URL</a></li>
+                </ul>                    -->
+            <!-- </nav>
+            <a class="btn btn-outline-primary" href="{{ url_for('index')}}">New URL</a>             -->
+            <!-- <header>
+               
+            </header> -->
+        <!-- </div>      -->
+    {% endblock %}
+    {% for message in get_flashed_messages()%} 
+    <!-- This block will display flash message -->
+        <div class="container text-center">
+            <div class="p-3 mb-2 bg-danger text-white">
+                {{message}}
+            </div>
+        </div>
+        
+    {% endfor %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% block footer %}
+        <div class="container">
+            <footer>
+                <div class="row d-flex flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+                    <p>
+                        Copyright &copy; 2021 by Perrichiest. All rights reserved.
+                    </p>
+                </div>
+            </footer>
+        </div>
+    {% endblock %}
+
+    {% block scripts %}
+        <script src="{{url_for('static',filename='/resources/js/jquery-3.6.0.min.js')}}"></script>
+        <script src="{{url_for('static',filename='/resources/js/popper.min.js')}}"></script>
+        <script src="{{url_for('static',filename='/resources/js/bootstrap.min.js')}}"></script>
+        <script src="{{url_for('static',filename='/resources/js/script.js')}}"></script>
+    {% endblock %}
+    
+</body>
+
+</html>
